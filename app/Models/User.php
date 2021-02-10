@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use App\Models\News;
 
 class User extends Authenticatable
 {
@@ -40,4 +41,30 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // у пользователя много новостей
+    public function news()
+    {
+        return $this->hasMany(News::class, 'author_id');
+    }
+
+    // проверяет, может ли пользователь опубликовать статью или нет
+    public function can_post()
+    {
+        $role = $this->role;
+        if ($role == 'author' || $role == 'admin') {
+            return true;
+        }
+        return false;
+    }
+
+    //проверяет, является ли роль администратором
+    public function is_admin()
+    {
+        $role = $this->role;
+        if ($role == 'admin') {
+            return true;
+        }
+        return false;
+    }
 }

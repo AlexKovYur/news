@@ -2,15 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="683a018c-7b01-4993-9b10-d62e8c856528" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/blog.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/css/normalize.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/news.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/views/template.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,7 +184,9 @@
       <option name="presentableId" value="Default" />
       <updated>1612800678587</updated>
       <workItem from="1612800680743" duration="5908000" />
-      <workItem from="1612883036605" duration="9895000" />
+      <workItem from="1612883036605" duration="10916000" />
+      <workItem from="1612928659808" duration="87000" />
+      <workItem from="1612972262075" duration="5323000" />
     </task>
     <servers />
   </component>
@@ -198,6 +194,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="503" y="141" key="FileChooserDialogImpl" timestamp="1612928746661">
+      <screen x="65" y="24" width="1301" height="744" />
+    </state>
+    <state x="503" y="141" key="FileChooserDialogImpl/65.24.1301.744@65.24.1301.744" timestamp="1612928746661" />
     <state x="423" y="197" key="NewPhpClassDialog" timestamp="1612885963851">
       <screen x="65" y="24" width="1301" height="744" />
     </state>
@@ -206,10 +206,10 @@
       <screen x="65" y="24" width="1301" height="744" />
     </state>
     <state x="516" y="309" key="NewPhpFileDialog/65.24.1301.744@65.24.1301.744" timestamp="1612885952334" />
-    <state x="376" y="211" key="com.intellij.ide.util.TipDialog" timestamp="1612883077024">
+    <state x="376" y="211" key="com.intellij.ide.util.TipDialog" timestamp="1612928683717">
       <screen x="65" y="24" width="1301" height="744" />
     </state>
-    <state x="376" y="211" key="com.intellij.ide.util.TipDialog/65.24.1301.744@65.24.1301.744" timestamp="1612883077024" />
+    <state x="376" y="211" key="com.intellij.ide.util.TipDialog/65.24.1301.744@65.24.1301.744" timestamp="1612928683717" />
     <state x="471" y="26" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1612804077765">
       <screen x="65" y="24" width="1301" height="744" />
     </state>
