@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="683a018c-7b01-4993-9b10-d62e8c856528" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/news.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/news.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,6 +138,9 @@
       <path value="$PROJECT_DIR$/vendor/nunomaduro/collision" />
       <path value="$PROJECT_DIR$/vendor/mockery/mockery" />
       <path value="$PROJECT_DIR$/vendor/laravel/ui" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
+      <path value="$PROJECT_DIR$/vendor/doctrine/event-manager" />
     </include_path>
   </component>
   <component name="ProjectId" id="1oCpyFSJxfZhrMCb6EccjRerxGy" />
@@ -186,7 +191,10 @@
       <workItem from="1612800680743" duration="5908000" />
       <workItem from="1612883036605" duration="10916000" />
       <workItem from="1612928659808" duration="87000" />
-      <workItem from="1612972262075" duration="5323000" />
+      <workItem from="1612972262075" duration="6310000" />
+      <workItem from="1612983366752" duration="298000" />
+      <workItem from="1613013295486" duration="50000" />
+      <workItem from="1613057601824" duration="8058000" />
     </task>
     <servers />
   </component>
@@ -194,10 +202,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="503" y="141" key="FileChooserDialogImpl" timestamp="1612928746661">
+    <state x="503" y="141" key="FileChooserDialogImpl" timestamp="1613013348726">
       <screen x="65" y="24" width="1301" height="744" />
     </state>
-    <state x="503" y="141" key="FileChooserDialogImpl/65.24.1301.744@65.24.1301.744" timestamp="1612928746661" />
+    <state x="503" y="141" key="FileChooserDialogImpl/65.24.1301.744@65.24.1301.744" timestamp="1613013348726" />
     <state x="423" y="197" key="NewPhpClassDialog" timestamp="1612885963851">
       <screen x="65" y="24" width="1301" height="744" />
     </state>
@@ -206,10 +214,10 @@
       <screen x="65" y="24" width="1301" height="744" />
     </state>
     <state x="516" y="309" key="NewPhpFileDialog/65.24.1301.744@65.24.1301.744" timestamp="1612885952334" />
-    <state x="376" y="211" key="com.intellij.ide.util.TipDialog" timestamp="1612928683717">
+    <state x="376" y="211" key="com.intellij.ide.util.TipDialog" timestamp="1613013296256">
       <screen x="65" y="24" width="1301" height="744" />
     </state>
-    <state x="376" y="211" key="com.intellij.ide.util.TipDialog/65.24.1301.744@65.24.1301.744" timestamp="1612928683717" />
+    <state x="376" y="211" key="com.intellij.ide.util.TipDialog/65.24.1301.744@65.24.1301.744" timestamp="1613013296256" />
     <state x="471" y="26" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1612804077765">
       <screen x="65" y="24" width="1301" height="744" />
     </state>
