@@ -12,6 +12,9 @@ class User extends Authenticatable
 {
     use HasFactory, Notifiable;
 
+    const ROLE_ADMIN = 'admin';
+    const ROLE_AUTHOR = 'author';
+
     /**
      * The attributes that are mass assignable.
      *
@@ -49,10 +52,10 @@ class User extends Authenticatable
     }
 
     // проверяет, может ли пользователь опубликовать статью или нет
-    public function can_post()
+    public function can_news()
     {
         $role = $this->role;
-        if ($role == 'author' || $role == 'admin') {
+        if ($role == self::ROLE_AUTHOR || $role == self::ROLE_ADMIN) {
             return true;
         }
         return false;
@@ -62,7 +65,7 @@ class User extends Authenticatable
     public function is_admin()
     {
         $role = $this->role;
-        if ($role == 'admin') {
+        if ($role == self::ROLE_ADMIN) {
             return true;
         }
         return false;

@@ -2,11 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="683a018c-7b01-4993-9b10-d62e8c856528" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/news.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/news.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/Http/Requests/NewsFormRequests.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_02_11_154423_update_columns_news.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_02_11_154423_update_columns_news.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app_old.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/news.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/news.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -194,7 +196,12 @@
       <workItem from="1612972262075" duration="6310000" />
       <workItem from="1612983366752" duration="298000" />
       <workItem from="1613013295486" duration="50000" />
-      <workItem from="1613057601824" duration="8058000" />
+      <workItem from="1613057601824" duration="9478000" />
+      <workItem from="1613067732051" duration="323000" />
+      <workItem from="1613106813388" duration="37000" />
+      <workItem from="1613145693386" duration="6540000" />
+      <workItem from="1613192701945" duration="46000" />
+      <workItem from="1613401090087" duration="9894000" />
     </task>
     <servers />
   </component>
@@ -202,22 +209,22 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="503" y="141" key="FileChooserDialogImpl" timestamp="1613013348726">
+    <state x="503" y="141" key="FileChooserDialogImpl" timestamp="1613192750227">
       <screen x="65" y="24" width="1301" height="744" />
     </state>
-    <state x="503" y="141" key="FileChooserDialogImpl/65.24.1301.744@65.24.1301.744" timestamp="1613013348726" />
+    <state x="503" y="141" key="FileChooserDialogImpl/65.24.1301.744@65.24.1301.744" timestamp="1613192750227" />
     <state x="423" y="197" key="NewPhpClassDialog" timestamp="1612885963851">
       <screen x="65" y="24" width="1301" height="744" />
     </state>
     <state x="423" y="197" key="NewPhpClassDialog/65.24.1301.744@65.24.1301.744" timestamp="1612885963851" />
-    <state x="516" y="309" key="NewPhpFileDialog" timestamp="1612885952334">
+    <state x="516" y="309" key="NewPhpFileDialog" timestamp="1613406686137">
       <screen x="65" y="24" width="1301" height="744" />
     </state>
-    <state x="516" y="309" key="NewPhpFileDialog/65.24.1301.744@65.24.1301.744" timestamp="1612885952334" />
-    <state x="376" y="211" key="com.intellij.ide.util.TipDialog" timestamp="1613013296256">
+    <state x="516" y="309" key="NewPhpFileDialog/65.24.1301.744@65.24.1301.744" timestamp="1613406686137" />
+    <state x="376" y="211" key="com.intellij.ide.util.TipDialog" timestamp="1613192704063">
       <screen x="65" y="24" width="1301" height="744" />
     </state>
-    <state x="376" y="211" key="com.intellij.ide.util.TipDialog/65.24.1301.744@65.24.1301.744" timestamp="1613013296256" />
+    <state x="376" y="211" key="com.intellij.ide.util.TipDialog/65.24.1301.744@65.24.1301.744" timestamp="1613192704063" />
     <state x="471" y="26" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1612804077765">
       <screen x="65" y="24" width="1301" height="744" />
     </state>

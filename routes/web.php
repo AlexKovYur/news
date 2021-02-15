@@ -17,6 +17,10 @@ Route::get('/', function () {
     return view('news');
 });
 
+Route::get('/app2', function () {
+    return view('layouts.app3');
+});
+
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
