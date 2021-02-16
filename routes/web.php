@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\NewsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,9 +18,7 @@ Route::get('/', function () {
     return view('news');
 });
 
-Route::get('/app2', function () {
-    return view('layouts.app3');
-});
+Route::get('/new-news', [NewsController::class, 'create'])->name('create_new_news');
 
 Auth::routes();
 

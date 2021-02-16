@@ -58,7 +58,7 @@
                     <div class="dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->name }}
+                            {{ Auth::user()->getUserName() }}
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -98,11 +98,15 @@
     </div>
 
     <footer class="blog-footer">
-        <p>Авторские права © 2021 | <a href="#">Alex Kov</a>.</p>
+        <p>Авторские права © <?= date('Y') ?> | <a href="#">Alex Kov</a>.</p>
         <p>
             <a href="#">Вернуться наверх</a>
         </p>
     </footer>
 </div>
+
+<!-- Scripts -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
 </body>
 </html>

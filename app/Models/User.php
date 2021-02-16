@@ -55,7 +55,7 @@ class User extends Authenticatable
     public function can_news()
     {
         $role = $this->role;
-        if ($role == self::ROLE_AUTHOR || $role == self::ROLE_ADMIN) {
+        if (in_array($role, [self::ROLE_AUTHOR, self::ROLE_ADMIN])) {
             return true;
         }
         return false;
@@ -65,9 +65,15 @@ class User extends Authenticatable
     public function is_admin()
     {
         $role = $this->role;
-        if ($role == self::ROLE_ADMIN) {
+        if (in_array($role, [self::ROLE_ADMIN])) {
             return true;
         }
         return false;
+    }
+
+    //имя пользователя
+    public function getUserName() {
+        $userName = !empty($this->name) ? e($this->name) : '';
+        return $userName;
     }
 }
