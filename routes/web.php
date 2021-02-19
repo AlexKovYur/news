@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +20,9 @@ Route::get('/', function () {
 });
 
 Route::get('/new-news', [NewsController::class, 'create'])->name('create_new_news');
+
+//Добавление категорий новостей
+Route::get('/add-category', [CategoryController::class, 'addCategories'])->name('add_category');
 
 Auth::routes();
 
