@@ -15,14 +15,15 @@ use App\Http\Controllers\CategoryController;
 |
 */
 
-Route::get('/', function () {
-    return view('news');
-});
+Route::get('/', [NewsController::class, 'index'])->name('news');
 
 Route::get('/new-news', [NewsController::class, 'create'])->name('create_new_news');
 
 //Добавление категорий новостей
 Route::get('/add-category', [CategoryController::class, 'addCategories'])->name('add_category');
+
+//Удаление всех данных таблицы категории
+Route::get('delete-all-categories', [CategoryController::class, 'deleteAllCategories'])->name('delete_all_categories');
 
 Auth::routes();
 

@@ -15,6 +15,10 @@ class News extends Model
     // ограничивает изменение столбцов
     protected $guarded = [];
 
+    //Поле даты
+    protected $dates = ['news_date'];
+
+
     // возвращает экземпляр пользователя, который является автором этого сообщения
     public function author()
     {
