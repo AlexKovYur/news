@@ -24,6 +24,6 @@
             </div>
         </div>
     </div>
-    <script src="{{ asset('/js/tinymce/tinymce.min.js') }}"></script>
-    <script src="{{ asset('/js/main.js') }}"></script>
+    <!--<script src="{{ asset('/js/tinymce/tinymce.min.js') }}"></script>-->
+    <!--<script src="{{ asset('/js/main.js') }}"></script>-->
 @endsection

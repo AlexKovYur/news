@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\News;
 
@@ -26,6 +27,13 @@ class NewsController extends Controller
         } else {
             return redirect('/')->whiteErrors('У вас недостаточно прав для написания новости');
         }
+    }
+
+    public function getCategoriesNews($id) {
+
+        $categoriesNews = Category::find($id)->news;
+
+        return view('news.category', compact('categoriesNews'));
     }
 
 }

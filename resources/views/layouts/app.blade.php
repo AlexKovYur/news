@@ -22,6 +22,8 @@
     <!-- Styles -->
     <link href="{{ asset('/css/normalize.css') }}" rel="stylesheet">
     <link href="{{ asset('/css/blog.css') }}" rel="stylesheet">
+    <!--Slick slider-->
+    <link rel="stylesheet" type="text/css" href="{{ asset('/css/slick/slick.css') }}"/>
     <!-- Styles -->
     <!--<link href="{{ asset('css/app.css') }}" rel="stylesheet">-->
 
@@ -81,15 +83,15 @@
 
     <div class="nav-scroller py-1 mb-2">
         <nav class="nav d-flex justify-content-between">
-            <a class="p-2 text-muted" href="#">Мир</a>
-            <a class="p-2 text-muted" href="#">Политика</a>
-            <a class="p-2 text-muted" href="#">Наука</a>
-            <a class="p-2 text-muted" href="#">Спорт</a>
-            <a class="p-2 text-muted" href="#">Здоровье</a>
-            <a class="p-2 text-muted" href="#">Культура</a>
-            <a class="p-2 text-muted" href="#">Наука</a>
-            <a class="p-2 text-muted" href="#">Происшествия</a>
-            <a class="p-2 text-muted" href="#">Экономика</a>
+            <a class="p-2 text-muted" href="{{ route('category', ['id' => 1]) }}">Мир</a>
+            <a class="p-2 text-muted" href="{{ route('category', ['id' => 2]) }}">Политика</a>
+            <a class="p-2 text-muted" href="{{ route('category', ['id' => 3]) }}">Наука</a>
+            <a class="p-2 text-muted" href="{{ route('category', ['id' => 4]) }}">Спорт</a>
+            <a class="p-2 text-muted" href="{{ route('category', ['id' => 5]) }}">Здоровье</a>
+            <a class="p-2 text-muted" href="{{ route('category', ['id' => 6]) }}">Культура</a>
+            <a class="p-2 text-muted" href="{{ route('category', ['id' => 7]) }}">Наука</a>
+            <a class="p-2 text-muted" href="{{ route('category', ['id' => 8]) }}">Происшествия</a>
+            <a class="p-2 text-muted" href="{{ route('category', ['id' => 9]) }}">Экономика</a>
         </nav>
     </div>
 
@@ -108,5 +110,11 @@
 <!-- Scripts -->
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<!-- Slick -->
+<script type="text/javascript" src="{{ asset('/js/slick/slick.min.js') }}"></script>
+<!-- tinymce -->
+<script src="{{ asset('/js/tinymce/tinymce.min.js') }}"></script>
+<script src="{{ asset('/js/main.js') }}"></script>
+
 </body>
 </html>

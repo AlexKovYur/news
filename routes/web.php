@@ -28,3 +28,6 @@ Route::get('delete-all-categories', [CategoryController::class, 'deleteAllCatego
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+//Категории новостей
+Route::get('/{id}/category', [NewsController::class, 'getCategoriesNews'])->name('category');

@@ -2,12 +2,19 @@
 @section('content')
     <div class="container">
 
-        <div class="jumbotron p-3 p-md-5 text-white rounded bg-dark">
-            <div class="col-md-6 px-0">
+        <div class="jumbotron p-0 text-white rounded bg-dark" >
+            <div class="col-md-6 p-3 p-md-5">
                 <h1 class="display-4 font-italic">Title of a longer featured blog post</h1>
                 <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and efficiently
                     about what's most interesting in this post's contents.</p>
                 <p class="lead mb-0"><a href="#" class="text-white font-weight-bold">Continue reading...</a></p>
+            </div>
+            <div class="col-md-6 p-3 p-md-5">
+                <h1 class="display-4 font-italic">11111111111111</h1>
+
+            </div>
+            <div class="col-md-6 p-3 p-md-5">
+                <h1 class="display-4 font-italic">222222222222222222</h1>
             </div>
         </div>
 
@@ -51,7 +58,7 @@
                     <h3 class="pb-3 mb-4 font-italic border-bottom">
                          Выбор редакции
                     </h3>
-                    @if($news)
+                    @if(!$news->isEmpty())
                         @foreach($news as $keyNews => $valNews)
                             <div class="blog-post">
                                 <h2 class="blog-post-title">{{ $valNews->title }}</h2>
