@@ -2,14 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="683a018c-7b01-4993-9b10-d62e8c856528" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/news/category.blade.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/resources/views/news/pagination.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/NewsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/NewsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/CategoryNewsSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/CategoryNewsSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/blog.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/blog.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/news.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/news.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/news/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/news/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/news/category.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/news/category.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -231,7 +231,12 @@
       <workItem from="1614010139897" duration="4501000" />
       <workItem from="1614178356941" duration="8516000" />
       <workItem from="1614266516630" duration="9389000" />
-      <workItem from="1614356442265" duration="16841000" />
+      <workItem from="1614356442265" duration="17039000" />
+      <workItem from="1614577354182" duration="632000" />
+      <workItem from="1614581961218" duration="6000" />
+      <workItem from="1614612864876" duration="9428000" />
+      <workItem from="1614700100245" duration="8296000" />
+      <workItem from="1614785614389" duration="8459000" />
     </task>
     <servers />
   </component>
@@ -239,10 +244,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="453" y="141" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1614530692175">
+    <state x="453" y="141" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1614792149287">
       <screen x="65" y="24" width="1301" height="744" />
     </state>
-    <state x="453" y="141" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/65.24.1301.744@65.24.1301.744" timestamp="1614530692175" />
+    <state x="453" y="141" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/65.24.1301.744@65.24.1301.744" timestamp="1614792149287" />
     <state x="503" y="141" key="FileChooserDialogImpl" timestamp="1613463161301">
       <screen x="65" y="24" width="1301" height="744" />
     </state>
@@ -251,14 +256,14 @@
       <screen x="65" y="24" width="1301" height="744" />
     </state>
     <state x="423" y="197" key="NewPhpClassDialog/65.24.1301.744@65.24.1301.744" timestamp="1612885963851" />
-    <state x="516" y="309" key="NewPhpFileDialog" timestamp="1614536530589">
+    <state x="516" y="309" key="NewPhpFileDialog" timestamp="1614707271560">
       <screen x="65" y="24" width="1301" height="744" />
     </state>
-    <state x="516" y="309" key="NewPhpFileDialog/65.24.1301.744@65.24.1301.744" timestamp="1614536530589" />
-    <state x="376" y="211" key="com.intellij.ide.util.TipDialog" timestamp="1614356440593">
+    <state x="516" y="309" key="NewPhpFileDialog/65.24.1301.744@65.24.1301.744" timestamp="1614707271560" />
+    <state x="376" y="211" key="com.intellij.ide.util.TipDialog" timestamp="1614785611659">
       <screen x="65" y="24" width="1301" height="744" />
     </state>
-    <state x="376" y="211" key="com.intellij.ide.util.TipDialog/65.24.1301.744@65.24.1301.744" timestamp="1614356440593" />
+    <state x="376" y="211" key="com.intellij.ide.util.TipDialog/65.24.1301.744@65.24.1301.744" timestamp="1614785611659" />
     <state x="471" y="26" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1612804077765">
       <screen x="65" y="24" width="1301" height="744" />
     </state>
@@ -267,5 +272,16 @@
       <screen x="65" y="24" width="1301" height="744" />
     </state>
     <state x="361" y="114" width="709" height="536" key="find.popup/65.24.1301.744@65.24.1301.744" timestamp="1613492419498" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/resources/views/news.blade.php</url>
+          <line>48</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

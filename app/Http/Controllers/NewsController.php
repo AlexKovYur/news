@@ -11,13 +11,19 @@ class NewsController extends Controller
     public function index()
     {
         // получаем 5 сообщений из базы данных, которые являются активными и последними
-        $news = News::where('active', 1)->orderBy('created_at', 'desc')->paginate(3);
+        //$news = News::where('active', 1)->orderBy('created_at', 'desc')->paginate(3);
+        $news = News::orderBy('created_at', 'desc');
+
+        //Последние 3 новости для вывода в слайдер
+        $sliderNews = $news->limit(3)->get();
+
+        //Вывод новостей на главной странице,
+        $news = $news->paginate(5);
 
         // заголовок страницы
         $title = 'Последние новости';
 
-        //return view('home')->withNews($news)->withTitle($title);
-        return view('news', compact('news','title'));
+        return view('news', compact('news','sliderNews'));
     }
 
     public function create(Request $request)

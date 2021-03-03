@@ -6,12 +6,15 @@ tinymce.init({
 
 const $jq = jQuery.noConflict();
 $jq(document).ready(function() {
-    $jq('.bg-dark').slick({
+    $jq('.slider').slick({
         autoplay: true,
         autoplaySpeed: 5000,
         prevArrow: null,
         nextArrow: null,
         speed: 3000,
+    })
+    .on('setPosition', function (event, slick) { //Одиноковая высота для слайдов
+        slick.$slides.css('height', slick.$slideTrack.height() + 'px');
     });
 });
 
