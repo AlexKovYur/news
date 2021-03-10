@@ -29,5 +29,9 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-//Категории новостей
+//Категория новости
 Route::get('/{id}/category', [NewsController::class, 'getCategoriesNews'])->name('category');
+
+//Новости категории
+Route::get('/{id}/news_group_by', [NewsController::class, 'getNewsGroupBy'])->name('news_group_by');
+
