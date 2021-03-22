@@ -25,21 +25,62 @@ class NewsController extends Controller
 
     public function index()
     {
+        //Массив новостей по категориям
+        $arrayNewsByCategory = [];
+
+        //Массив url по новостям
+        $arrayHostByNews = [];
+
         // получаем 5 сообщений из базы данных, которые являются активными и последними
         $news = News::orderBy('created_at', 'desc');
 
         //Последние 3 новости для вывода в слайдер
         $sliderNews = $news->limit(3)->get();
 
+        //Сгрупированные новости по месяцу и году для вывода в боковую панель
         $monthYearNews = NewsController::newsGroupBy();
 
         //Вывод новостей на главной странице,
-        $news = $news->paginate(5);
+        //$news = $news->paginate(5);
 
+        //Все категории
+        $categoriesAll = Category::get();
+
+        if (!empty($categoriesAll)) {
+            foreach ($categoriesAll as $keyCategories => $valCategories) {
+                //$arrayNewsByCategory[$keyCategories] = $valCategories->twoNews()->orderBy('news_date', 'desc')->get();
+
+                $newsByCategory = $valCategories->twoNews()->orderBy('news_date', 'desc')->get();
+
+                if (empty($newsByCategory)) {
+                   continue;
+                }
+
+                $arrayNewsByCategory[$keyCategories] = $newsByCategory;
+
+                foreach ($newsByCategory as $keyNewsByCategory => $valNewsByCategory) {
+                    $arrayUrlByNews = !empty($valNewsByCategory->source) ? parse_url($valNewsByCategory->source) : [];
+                    $hostNews = !empty($arrayUrlByNews['host']) ? $arrayUrlByNews['host'] : '';
+
+                    if (!empty($hostNews)) {
+                        $arrayHostByNews[$keyCategories][$keyNewsByCategory] = $hostNews;
+                    }
+                }
+
+
+            }
+        }
+        //dd($arrayHostByNews);
         // заголовок страницы
         $title = 'Последние новости';
 
-        return view('news', compact('news','sliderNews', 'monthYearNews'));
+        return view('news',
+            compact('news',
+                'sliderNews',
+                'monthYearNews',
+                'categoriesAll',
+                'arrayNewsByCategory',
+                'arrayHostByNews'));
     }
 
     public function create(Request $request)
@@ -55,7 +96,7 @@ class NewsController extends Controller
 
         $monthYearNews = NewsController::newsGroupBy();
 
-        $categoriesNews = Category::find($id)->news;
+        $categoriesNews = Category::find($id)->news()->paginate(5);
 
         return view('news.category', compact('categoriesNews', 'monthYearNews'));
     }

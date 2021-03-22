@@ -1,10 +1,10 @@
-_<?php
+<?php
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class UpdateColumnsNews extends Migration
+class AddColunmSourceNews extends Migration
 {
     /**
      * Run the migrations.
@@ -14,8 +14,7 @@ class UpdateColumnsNews extends Migration
     public function up()
     {
         Schema::table('news', function (Blueprint $table) {
-            $table->unsignedBigInteger('author_id')->nullable()->change();
-            $table->dropUnique(['title']);
+            $table->text('source');
         });
     }
 
@@ -26,6 +25,8 @@ class UpdateColumnsNews extends Migration
      */
     public function down()
     {
-        dd('для перехода на более раннюю версию сделать новую миграцию');
+        Schema::table('news', function (Blueprint $table) {
+            dd('для перехода на более раннюю версию сделать новую миграцию');
+        });
     }
 }

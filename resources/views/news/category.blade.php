@@ -2,6 +2,7 @@
 @section('content')
     <main role="main" class="container">
         <div class="row">
+            <!-- Вывод всех новостей категории -->
             <div class="col-md-8 blog-main">
                 @if(!empty($categoriesNews))
                     @foreach($categoriesNews as $keyCategoriesNews => $valCategoriesNews)
@@ -15,6 +16,9 @@
                             </div><!-- /.blog-post -->
                     @endforeach
                 @endif
+
+                <!-- Пагинация -->
+                {{ $categoriesNews->links('news.pagination') }}
             </div><!-- /.blog-main -->
 
             <aside class="col-md-4 blog-sidebar">
@@ -24,6 +28,7 @@
                         amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
                 </div>
 
+                <!-- Вывод архива нгвостей по месяцу и году -->
                 <div class="p-3">
                     <h4 class="font-italic">Archives</h4>
                     <ol class="list-unstyled mb-0">

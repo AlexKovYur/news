@@ -49,24 +49,29 @@
         <main role="main" class="container">
             <div class="row">
                 <div class="col-md-8 blog-main">
-                    <h3 class="pb-3 mb-4 font-italic border-bottom">
-                         Выбор редакции
-                    </h3>
-                    @if(!$news->isEmpty())
-                        @foreach($news as $keyNews => $valNews)
-                            <div class="blog-post">
-                                <h2 class="blog-post-title">{{ $valNews->title }}</h2>
-                                <p class="blog-post-meta">{{ $valNews->news_date->format('d F Y h:m') }} <a href="#">{{ $valNews->author->name }}</a></p>
-                                <img src="{{ asset('storage/images/' . $valNews->photo) }}" alt="photo news">
-                                <br>
-                                <br>
-                                <p>{{ $valNews->body }}</p>
-                            </div><!-- /.blog-post -->
+                    @if(count($categoriesAll) && count($arrayNewsByCategory))
+                        @foreach($categoriesAll as $keyCategories => $valCategories)
+                            <h3 class="pb-3 mb-4 font-italic border-bottom">
+                                {{ $valCategories->name }}
+                            </h3>
+
+                            @if(count($arrayNewsByCategory[$keyCategories]))
+                                @foreach($arrayNewsByCategory[$keyCategories] as $keyNews => $valNews)
+                                    <div class="blog-post bg-light p-3">
+                                        <h2 class="blog-post-title">{{ $valNews->title }}</h2>
+                                        <p class="blog-post-meta">{{ $valNews->news_date->format('d F Y h:m') }}
+                                            <a href="{{ $valNews->source }}" class="source-link">Источник: {{ $arrayHostByNews[$keyCategories][$keyNews] }}</a>
+                                        </p>
+                                        <br>
+                                        <p>{{ $valNews->body }}</p>
+                                    </div><!-- /.blog-post -->
+                                @endforeach
+                            @endif
                         @endforeach
                     @endif
 
                     <!-- Пагинация -->
-                    {{ $news->links('news.pagination') }}
+
 
                 </div><!-- /.blog-main -->
 

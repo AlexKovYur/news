@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
+use App\Models\News;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\News;
 
 class Category extends Model
 {
@@ -16,5 +16,10 @@ class Category extends Model
 
     public function news() {
         return $this->belongsToMany(News::class, 'categories_news', 'category_id', 'news_id');
+    }
+
+    public function twoNews()
+    {
+        return $this->belongsToMany(News::class, 'categories_news', 'category_id', 'news_id')->orderBy('news_date', 'desc')->limit(2);
     }
 }
