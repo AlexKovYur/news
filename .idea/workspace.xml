@@ -2,18 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="683a018c-7b01-4993-9b10-d62e8c856528" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/news.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/news.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/NewsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/NewsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Category.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_02_11_154423_update_columns_news.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_02_11_154423_update_columns_news.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/blog.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/blog.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/news.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/news.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/news/category.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/news/category.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,6 +174,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -264,7 +255,7 @@
       <workItem from="1616122797335" duration="94000" />
       <workItem from="1616246104347" duration="14310000" />
       <workItem from="1616388311339" duration="188000" />
-      <workItem from="1616425901912" duration="5919000" />
+      <workItem from="1616425901912" duration="6391000" />
     </task>
     <servers />
   </component>
@@ -296,10 +287,10 @@
       <screen x="65" y="24" width="1301" height="744" />
     </state>
     <state x="471" y="26" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/65.24.1301.744@65.24.1301.744" timestamp="1612804077765" />
-    <state x="361" y="114" width="709" height="536" key="find.popup" timestamp="1613492419498">
+    <state x="361" y="114" width="709" height="536" key="find.popup" timestamp="1616432394663">
       <screen x="65" y="24" width="1301" height="744" />
     </state>
-    <state x="361" y="114" width="709" height="536" key="find.popup/65.24.1301.744@65.24.1301.744" timestamp="1613492419498" />
+    <state x="361" y="114" width="709" height="536" key="find.popup/65.24.1301.744@65.24.1301.744" timestamp="1616432394663" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
