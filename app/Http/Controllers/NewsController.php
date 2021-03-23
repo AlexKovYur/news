@@ -23,10 +23,17 @@ class NewsController extends Controller
         return $monthYearNews;
     }
 
+    private function sourceHost($news) {
+        $arrayUrlByNews = !empty($news->source) ? parse_url($news->source) : [];
+        $host = !empty($arrayUrlByNews['host']) ? $arrayUrlByNews['host'] : '';
+
+        return $host;
+    }
+
     public function index()
     {
         //Массив новостей по категориям
-        $arrayNewsByCategory = [];
+        $arrayTwoNewsByCategory = [];
 
         //Массив url по новостям
         $arrayHostByNews = [];
@@ -48,19 +55,24 @@ class NewsController extends Controller
 
         if (!empty($categoriesAll)) {
             foreach ($categoriesAll as $keyCategories => $valCategories) {
-                //$arrayNewsByCategory[$keyCategories] = $valCategories->twoNews()->orderBy('news_date', 'desc')->get();
 
-                $newsByCategory = $valCategories->twoNews()->orderBy('news_date', 'desc')->get();
+                $twoNewsByCategory = $valCategories->twoNews()->get();
 
-                if (empty($newsByCategory)) {
+                $fourNewsByCategory = $valCategories->fourNewsSkipTwo()->get();
+
+                if (empty($twoNewsByCategory)) {
                    continue;
                 }
 
-                $arrayNewsByCategory[$keyCategories] = $newsByCategory;
+                $arrayTwoNewsByCategory[$keyCategories] = $twoNewsByCategory;
 
-                foreach ($newsByCategory as $keyNewsByCategory => $valNewsByCategory) {
-                    $arrayUrlByNews = !empty($valNewsByCategory->source) ? parse_url($valNewsByCategory->source) : [];
-                    $hostNews = !empty($arrayUrlByNews['host']) ? $arrayUrlByNews['host'] : '';
+                $arrayFourNewsByCategory[$keyCategories] = $fourNewsByCategory;
+
+                foreach ($twoNewsByCategory as $keyNewsByCategory => $valNewsByCategory) {
+                    /*$arrayUrlByNews = !empty($valNewsByCategory->source) ? parse_url($valNewsByCategory->source) : [];
+                    $hostNews = !empty($arrayUrlByNews['host']) ? $arrayUrlByNews['host'] : '';*/
+
+                    $hostNews = NewsController::sourceHost($valNewsByCategory);
 
                     if (!empty($hostNews)) {
                         $arrayHostByNews[$keyCategories][$keyNewsByCategory] = $hostNews;
@@ -79,8 +91,9 @@ class NewsController extends Controller
                 'sliderNews',
                 'monthYearNews',
                 'categoriesAll',
-                'arrayNewsByCategory',
-                'arrayHostByNews'));
+                'arrayTwoNewsByCategory',
+                'arrayHostByNews',
+                'arrayFourNewsByCategory'));
     }
 
     public function create(Request $request)
@@ -109,6 +122,26 @@ class NewsController extends Controller
 
         return view('news.category', compact('categoriesNews', 'monthYearNews'));
 
+    }
+
+    //Получаем данные новости по id
+    public function getNews($id) {
+        if (!empty($id)) {
+            $foundNews = News::find($id);
+
+            $monthYearNews = NewsController::newsGroupBy();
+
+            //Если данные по новость есть то выводим новость, иначе перенаправляем обратно
+            if (!empty($foundNews)) {
+                $hostNews = NewsController::sourceHost($foundNews);
+
+                return view('news.one_news', compact('foundNews', 'monthYearNews', 'hostNews'));
+            } else {
+                return back();
+            }
+        } else {
+            return back();
+        }
     }
 
 }
