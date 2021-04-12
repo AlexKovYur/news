@@ -2,10 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="683a018c-7b01-4993-9b10-d62e8c856528" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/resources/views/news/one_news.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/NewsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/NewsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Category.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Category.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/News.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/News.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeders/SourceNewsSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/SourceNewsSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/news.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/news.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
@@ -175,7 +176,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../job/Год_2021/Март/43)23.03.2021 Привязка заявки к нескольким протоколам (продолжение)/Тестовый/results_isp_binding_multiple_protocols.php" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
@@ -260,7 +261,25 @@
       <workItem from="1616246104347" duration="14310000" />
       <workItem from="1616388311339" duration="188000" />
       <workItem from="1616425901912" duration="7590000" />
-      <workItem from="1616510971067" duration="7236000" />
+      <workItem from="1616510971067" duration="7943000" />
+      <workItem from="1616601523766" duration="5898000" />
+      <workItem from="1616995502642" duration="47000" />
+      <workItem from="1617036016277" duration="5103000" />
+      <workItem from="1617075195077" duration="384000" />
+      <workItem from="1617122632049" duration="6474000" />
+      <workItem from="1617184415780" duration="597000" />
+      <workItem from="1617205174970" duration="6709000" />
+      <workItem from="1617293418739" duration="6962000" />
+      <workItem from="1617338763886" duration="1359000" />
+      <workItem from="1617386629986" duration="3633000" />
+      <workItem from="1617641416813" duration="4877000" />
+      <workItem from="1617704641238" duration="597000" />
+      <workItem from="1617722944763" duration="9328000" />
+      <workItem from="1617810380825" duration="5538000" />
+      <workItem from="1617899291836" duration="4046000" />
+      <workItem from="1617983345601" duration="8790000" />
+      <workItem from="1618154452515" duration="14391000" />
+      <workItem from="1618230723600" duration="6000" />
     </task>
     <servers />
   </component>
@@ -268,14 +287,14 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="453" y="141" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1616513023132">
+    <state x="453" y="141" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1617725525324">
       <screen x="65" y="24" width="1301" height="744" />
     </state>
-    <state x="453" y="141" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/65.24.1301.744@65.24.1301.744" timestamp="1616513023132" />
-    <state x="503" y="141" key="FileChooserDialogImpl" timestamp="1616122893489">
+    <state x="453" y="141" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/65.24.1301.744@65.24.1301.744" timestamp="1617725525324" />
+    <state x="503" y="141" key="FileChooserDialogImpl" timestamp="1617338838881">
       <screen x="65" y="24" width="1301" height="744" />
     </state>
-    <state x="503" y="141" key="FileChooserDialogImpl/65.24.1301.744@65.24.1301.744" timestamp="1616122893489" />
+    <state x="503" y="141" key="FileChooserDialogImpl/65.24.1301.744@65.24.1301.744" timestamp="1617338838881" />
     <state x="423" y="197" key="NewPhpClassDialog" timestamp="1612885963851">
       <screen x="65" y="24" width="1301" height="744" />
     </state>
@@ -284,10 +303,10 @@
       <screen x="65" y="24" width="1301" height="744" />
     </state>
     <state x="516" y="309" key="NewPhpFileDialog/65.24.1301.744@65.24.1301.744" timestamp="1616517225767" />
-    <state x="376" y="211" key="com.intellij.ide.util.TipDialog" timestamp="1616510971162">
+    <state x="376" y="211" key="com.intellij.ide.util.TipDialog" timestamp="1618245722731">
       <screen x="65" y="24" width="1301" height="744" />
     </state>
-    <state x="376" y="211" key="com.intellij.ide.util.TipDialog/65.24.1301.744@65.24.1301.744" timestamp="1616510971162" />
+    <state x="376" y="211" key="com.intellij.ide.util.TipDialog/65.24.1301.744@65.24.1301.744" timestamp="1618245722731" />
     <state x="471" y="26" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1612804077765">
       <screen x="65" y="24" width="1301" height="744" />
     </state>
@@ -300,11 +319,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/resources/views/news.blade.php</url>
-          <line>48</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="php">
           <url>file://$PROJECT_DIR$/resources/views/news.blade.php</url>
           <line>37</line>

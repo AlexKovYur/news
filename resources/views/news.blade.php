@@ -49,39 +49,39 @@
         <main role="main" class="container">
             <div class="row">
                 <div class="col-md-8 blog-main">
-                    @if(count($categoriesAll) && count($arrayTwoNewsByCategory))
+                    @if(count($categoriesAll) && count($arrayNewsByCategory))
                         @foreach($categoriesAll as $keyCategories => $valCategories)
+                            @if(count($arrayNewsByCategory[$keyCategories]))
                             <h3 class="pb-3 mb-4 font-italic border-bottom">
                                 {{ $valCategories->name }}
                             </h3>
-
-                            @if(count($arrayTwoNewsByCategory[$keyCategories]))
-                                @foreach($arrayTwoNewsByCategory[$keyCategories] as $keyNews => $valNews)
-                                    <div class="blog-post bg-light p-3">
-                                        <a href="{{ route('one_news', ['id' => $valNews->id]) }}">
+                                <div class="blog-post bg-light p-3">
+                                @foreach($arrayNewsByCategory[$keyCategories] as $keyNews => $valNews)
+                                        @if(!$loop->index)
+                                        <a href="{{ route('one_news', ['id' => $valNews->id]) }}" target="_blank">
                                             <h2 class="blog-post-title">{{ $valNews->title }}</h2>
                                         </a>
                                         <p class="blog-post-meta">{{ $valNews->news_date->format('d F Y h:m') }}
-                                            <a href="{{ $valNews->source }}" class="source-link" target="_blank">Источник: {{ $arrayHostByNews[$keyCategories][$keyNews] }}</a>
+                                            <a href="{{ $valNews->source }}" class="source-link" target="_blank">Источник: {{ $valNews->getRelations()['source']->host }}</a>
                                         </p>
                                         <br>
                                         <p>{{ $valNews->body }}</p>
                                         <div class="blog-four-news">
-                                            @if(count($arrayFourNewsByCategory[$keyCategories]))
-                                                @foreach($arrayFourNewsByCategory[$keyCategories] as $keyNews => $valNews)
-                                                    <p class="mb-0">{{ $valNews->title }}</p>
-                                                @endforeach
-                                            @endif
-                                        </div>
-                                    </div><!-- /.blog-post -->
+                                            <ul>
+                                        @else
+                                            <li>
+                                                <a href="{{ route('one_news', ['id' => $valNews->id]) }}" target="_blank">
+                                                    <p class="mb-0">{{ $valNews->title }} {{ $valNews->getRelations()['source']->host }}</p>
+                                                </a>
+                                            </li>
+                                        @endif
                                 @endforeach
+                                            </ul>
+                                        </div>
+                                </div><!-- /.blog-post -->
                             @endif
                         @endforeach
                     @endif
-
-                    <!-- Пагинация -->
-
-
                 </div><!-- /.blog-main -->
 
                 <aside class="col-md-4 blog-sidebar">
@@ -111,9 +111,7 @@
                         </ol>
                     </div>
                 </aside><!-- /.blog-sidebar -->
-
             </div><!-- /.row -->
-
         </main><!-- /.container -->
 
         <footer class="blog-footer">

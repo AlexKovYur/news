@@ -25,6 +25,11 @@ class News extends Model
         return $this->belongsTo(User::class, 'author_id');
     }
 
+    public function source()
+    {
+        return $this->belongsTo(Source::class, 'source_id');
+    }
+
     public function categories() {
         return $this->belongsToMany(Category::class, 'categories_news', 'news_id', 'category_id' );
     }

@@ -33,10 +33,16 @@ class NewsController extends Controller
     public function index()
     {
         //Массив новостей по категориям
-        $arrayTwoNewsByCategory = [];
+        //$arrayTwoNewsByCategory = [];
 
         //Массив url по новостям
         $arrayHostByNews = [];
+
+        //Массив дополнительных,последующих новостей(по 4) в каждой категории для каждой новости
+        //$arrayFourNewsByCategory = [];
+
+        //Массив новостей по категориям сгруперованных по источнику
+        $arrayNewsByCategory = [];
 
         // получаем 5 сообщений из базы данных, которые являются активными и последними
         $news = News::orderBy('created_at', 'desc');
@@ -55,22 +61,21 @@ class NewsController extends Controller
 
         if (!empty($categoriesAll)) {
             foreach ($categoriesAll as $keyCategories => $valCategories) {
+                
+                $newsByCategory = $valCategories
+                    ->news()
+                    ->orderBy('news_date', 'desc')
+                    ->with('source')
+                    ->where(function ($query)  use ($valCategories){
+                        return $query->where('source_id', $query->join('categories_news', 'news.id', '=', 'categories_news.news_id')
+                            ->where('categories_news.category_id', $valCategories->id)->orderBy('news_date', 'desc')->first()->source_id);
+                    })
+                    ->take(5)
+                    ->get();
 
-                $twoNewsByCategory = $valCategories->twoNews()->get();
+                $arrayNewsByCategory[$keyCategories] = $newsByCategory;
 
-                $fourNewsByCategory = $valCategories->fourNewsSkipTwo()->get();
-
-                if (empty($twoNewsByCategory)) {
-                   continue;
-                }
-
-                $arrayTwoNewsByCategory[$keyCategories] = $twoNewsByCategory;
-
-                $arrayFourNewsByCategory[$keyCategories] = $fourNewsByCategory;
-
-                foreach ($twoNewsByCategory as $keyNewsByCategory => $valNewsByCategory) {
-                    /*$arrayUrlByNews = !empty($valNewsByCategory->source) ? parse_url($valNewsByCategory->source) : [];
-                    $hostNews = !empty($arrayUrlByNews['host']) ? $arrayUrlByNews['host'] : '';*/
+                foreach ($newsByCategory as $keyNewsByCategory => $valNewsByCategory) {
 
                     $hostNews = NewsController::sourceHost($valNewsByCategory);
 
@@ -78,11 +83,9 @@ class NewsController extends Controller
                         $arrayHostByNews[$keyCategories][$keyNewsByCategory] = $hostNews;
                     }
                 }
-
-
             }
         }
-        //dd($arrayHostByNews);
+
         // заголовок страницы
         $title = 'Последние новости';
 
@@ -91,9 +94,9 @@ class NewsController extends Controller
                 'sliderNews',
                 'monthYearNews',
                 'categoriesAll',
-                'arrayTwoNewsByCategory',
                 'arrayHostByNews',
-                'arrayFourNewsByCategory'));
+                'arrayNewsByCategory',
+                'newsByCategory'));
     }
 
     public function create(Request $request)

@@ -36,5 +36,5 @@ Route::get('/{id}/category', [NewsController::class, 'getCategoriesNews'])->name
 Route::get('/{id}/news_group_by', [NewsController::class, 'getNewsGroupBy'])->name('news_group_by');
 
 //Одна новость
-Route::get('/{id}/news', [NewsController::class, 'getNews'])->name('one_news');
+Route::get('/news/{id}', [NewsController::class, 'getNews'])->name('one_news');
 
