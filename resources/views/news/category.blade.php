@@ -34,7 +34,7 @@
                     <ol class="list-unstyled mb-0">
                         @if(!$monthYearNews->isEmpty())
                             @foreach($monthYearNews as $keyMonthYear => $monthYear)
-                                <li><a href="{{ route('news_group_by', ['id' => $monthYear->id]) }}">{{ $monthYear->month }} {{ $monthYear->year }}</a></li>
+                                <li><a href="{{ route('arhive', ['year' => $monthYear->year, 'month' => $monthYear->month]) }}">{{ $monthYear->month }} {{ $monthYear->year }}</a></li>
                             @endforeach
                         @endif
                     </ol>

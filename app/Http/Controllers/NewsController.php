@@ -23,6 +23,34 @@ class NewsController extends Controller
         return $monthYearNews;
     }
 
+    private function newsGroupByWhereSourceId($sourceId) {
+        //перед выполнение GROUP BY что бы не добавлять ВСЕ неаггрегированные поля выборки, необходимо сбросить sql_mode
+        DB::statement("SET SQL_MODE=''");
+
+        //Сгрупированные новости для вывода в боковую панель
+        $monthYearNewsWhereSouceId = News::selectRaw('id, year(news_date) year, monthname(news_date) month')
+            ->where('source_id', $sourceId)
+            ->groupBy('year', 'month')
+            ->orderBy('year', 'desc')
+            ->get();
+
+        return $monthYearNewsWhereSouceId;
+    }
+
+    /*private function newsGroupByWhereCategoriesId($sourceId) {
+        //перед выполнение GROUP BY что бы не добавлять ВСЕ неаггрегированные поля выборки, необходимо сбросить sql_mode
+        DB::statement("SET SQL_MODE=''");
+
+        //Сгрупированные новости для вывода в боковую панель
+        $monthYearNewsWhereSouceId = News::selectRaw('id, year(news_date) year, monthname(news_date) month')
+            ->where('source_id', $sourceId)
+            ->groupBy('year', 'month')
+            ->orderBy('year', 'desc')
+            ->get();
+
+        return $monthYearNewsWhereSouceId;
+    }*/
+
     private function sourceHost($news) {
         $arrayUrlByNews = !empty($news->source) ? parse_url($news->source) : [];
         $host = !empty($arrayUrlByNews['host']) ? $arrayUrlByNews['host'] : '';
@@ -61,7 +89,7 @@ class NewsController extends Controller
 
         if (!empty($categoriesAll)) {
             foreach ($categoriesAll as $keyCategories => $valCategories) {
-                
+
                 $newsByCategory = $valCategories
                     ->news()
                     ->orderBy('news_date', 'desc')
@@ -108,18 +136,39 @@ class NewsController extends Controller
         }
     }
 
+    //Получаем новости по выбранной категории
     public function getCategoriesNews($id) {
 
-        $monthYearNews = NewsController::newsGroupBy();
+        //перед выполнение GROUP BY что бы не добавлять ВСЕ неаггрегированные поля выборки, необходимо сбросить sql_mode
+        DB::statement("SET SQL_MODE=''");
+
+        //Сгрупированные новости для вывода в боковую панель
+        $monthYearNewsWhereSouceId = News::selectRaw('id, year(news_date) year, monthname(news_date) month')
+            ->where('source_id', $id)
+            ->groupBy('year', 'month')
+            ->orderBy('year', 'desc')
+            ->get();
+
+        dd($monthYearNewsWhereSouceId);
+
+        //$monthYearNews = NewsController::newsGroupBy();
+        //Получаем для источника сгрупперованные новости по году и месяцу
+        //$monthYearNewsWhereSouceId = NewsController::newsGroupByWhereSourceId($sourceId);
 
         $categoriesNews = Category::find($id)->news()->paginate(5);
 
         return view('news.category', compact('categoriesNews', 'monthYearNews'));
     }
 
-    public function getNewsGroupBy($id) {
+    //Получаем новости по выбранной группе(месяц и год)
+    public function getNewsGroupBy($year, $month) {
+
         //Получает все новости категории
-        $categoriesNews = News::select('*')->where('id', $id)->get();
+        $categoriesNews = News::with('source')
+            ->selectRaw('*, year(news_date) year, monthname(news_date) month')
+            ->having('year', '=', $year)
+            ->having('month', '=', $month)
+            ->paginate(5);
 
         $monthYearNews = NewsController::newsGroupBy();
 
@@ -130,15 +179,23 @@ class NewsController extends Controller
     //Получаем данные новости по id
     public function getNews($id) {
         if (!empty($id)) {
-            $foundNews = News::find($id);
+            $foundNews = News::with('source')->find($id);
 
-            $monthYearNews = NewsController::newsGroupBy();
+            $sourceId = !empty($foundNews->source_id) ? $foundNews->source_id : 0; //ID источника
+            $otherNewsSource = News::with('source')
+                ->where('source_id', $sourceId)
+                ->orderBy('news_date', 'desc')
+                ->take(5)
+                ->skip(1)
+                ->get();
+
+            //Получаем для источника сгрупперованные новости по году и месяцу
+            $monthYearNewsWhereSouceId = NewsController::newsGroupByWhereSourceId($sourceId);
 
             //Если данные по новость есть то выводим новость, иначе перенаправляем обратно
             if (!empty($foundNews)) {
-                $hostNews = NewsController::sourceHost($foundNews);
-
-                return view('news.one_news', compact('foundNews', 'monthYearNews', 'hostNews'));
+                //return view('news.one_news', compact('foundNews', 'monthYearNews'));
+                return view('news.one_news', compact('foundNews', 'monthYearNewsWhereSouceId', 'otherNewsSource'));
             } else {
                 return back();
             }

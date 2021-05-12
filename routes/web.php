@@ -29,12 +29,12 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-//Категория новости
-Route::get('/{id}/category', [NewsController::class, 'getCategoriesNews'])->name('category');
+//Получаем новость по выбранной категории
+Route::get('/category/{id}', [NewsController::class, 'getCategoriesNews'])->name('category');
 
-//Новости категории
-Route::get('/{id}/news_group_by', [NewsController::class, 'getNewsGroupBy'])->name('news_group_by');
+//Получаем новости по выбранной группе(месяц и год)
+Route::get('/arhive/{year}/{month}', [NewsController::class, 'getNewsGroupBy'])->name('arhive');
 
-//Одна новость
+//Получаем выбранную новость
 Route::get('/news/{id}', [NewsController::class, 'getNews'])->name('one_news');
 

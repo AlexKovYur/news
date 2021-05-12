@@ -2,19 +2,31 @@
 @section('content')
     <main role="main" class="container">
         <div class="row">
-            <!-- Вывод всех новостей категории -->
+            <!-- Вывод новости -->
             <div class="col-md-8 blog-main">
                 @if(!empty($foundNews))
                     <div class="blog-post">
                         <h2 class="blog-post-title">{{ $foundNews->title }}</h2>
                         <p class="blog-post-meta">{{ $foundNews->news_date->format('d F Y h:m') }}
-                            <a href="{{ $foundNews->source }}" class="source-link" target="_blank">Источник: {{ $hostNews }}</a>
+                            <a href="{{ $foundNews->source }}" class="source-link" target="_blank">Источник: {{ $foundNews->getRelation('source')->host }}</a>
                         </p>
                         <img src="{{ asset('storage/images/' . $foundNews->photo) }}" alt="photo news">
                         <br>
                         <br>
                         <p>{{ $foundNews->body }}</p>
                     </div><!-- /.blog-post -->
+                @endif
+                @if (count($otherNewsSource))
+                    <div class="wrapper-outher-news-source">
+                        <span class="title-outher-news-source">Так же читайте:</span>
+                        <ul class="outher-news-source">
+                            @foreach($otherNewsSource as $keyNewsSource => $valNewsSource)
+                                <li class="news-source">
+                                    <a href="{{ route('one_news', ['id' => $valNewsSource->id]) }}">{{ $valNewsSource->title }}</a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div> <!-- /.outher-news-source -->
                 @endif
             </div><!-- /.blog-main -->
 
@@ -29,9 +41,9 @@
                 <div class="p-3">
                     <h4 class="font-italic">Archives</h4>
                     <ol class="list-unstyled mb-0">
-                        @if(!$monthYearNews->isEmpty())
-                            @foreach($monthYearNews as $keyMonthYear => $monthYear)
-                                <li><a href="{{ route('news_group_by', ['id' => $monthYear->id]) }}">{{ $monthYear->month }} {{ $monthYear->year }}</a></li>
+                        @if(!$monthYearNewsWhereSouceId->isEmpty())
+                            @foreach($monthYearNewsWhereSouceId as $keyMonthYear => $monthYear)
+                                <li><a href="{{ route('arhive', ['year' => $monthYear->year, 'month' => $monthYear->month]) }}">{{ $monthYear->month }} {{ $monthYear->year }}</a></li>
                             @endforeach
                         @endif
                     </ol>

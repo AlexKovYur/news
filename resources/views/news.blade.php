@@ -16,17 +16,29 @@
             <div class="col-md-6">
                 <div class="card flex-md-row mb-4 box-shadow h-md-250">
                     <div class="card-body d-flex flex-column align-items-start">
-                        <strong class="d-inline-block mb-2 text-primary">World</strong>
-                        <h3 class="mb-0">
-                            <a class="text-dark" href="#">Featured post</a>
-                        </h3>
-                        <div class="mb-1 text-muted">Nov 12</div>
-                        <p class="card-text mb-auto">This is a wider card with supporting text below as a natural lead-in to
-                            additional content.</p>
-                        <a href="#">Continue reading</a>
+                        @if(@isset($arrayNewsByCategory[8]))
+                            @php
+                              $firstNewsByCategory = !empty($arrayNewsByCategory[8]->first()) ? $arrayNewsByCategory[8]->first() : null;
+                            @endphp
+                            @isset($firstNewsByCategory)
+                            <strong class="d-inline-block mb-2 text-primary">{{ $firstNewsByCategory->pivot->pivotParent->name }}</strong>
+                            <h3 class="mb-0">
+                                <span class="text-dark">{{ $firstNewsByCategory->title }}</span>
+                            </h3>
+                            <div class="mb-1 text-muted">
+                                {{ $firstNewsByCategory->news_date->format('d F Y h:m') }}
+                                <a href="{{ $firstNewsByCategory->source }}" class="source-link" target="_blank">Источник: {{ $firstNewsByCategory->getRelations()['source']->host }}</a>
+                            </div>
+                            <p class="card-text mb-auto">{{ $firstNewsByCategory->body }}</p>
+                            <a href="{{ route('one_news', ['id' => $firstNewsByCategory->id]) }}" class="card-link" target="_blank">Подробнее</a>
+                            @endisset
+                        @else
+                            <strong class="d-inline-block mb-2 text-primary">Новости экономики</strong>
+                            <p class="card-text mb-auto">Новости экономики в данный момент не доступны. Технический перерыв.</p>
+                        @endif
                     </div>
-                    <img class="card-img-right flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumb"
-                         alt="Card image cap">
+                    <img class="card-img-right flex-auto d-none d-md-block" data-src="holder.js/200x250?theme=thumb" src="{{ asset('storage/images/' . $firstNewsByCategory->photo) }}"
+                         alt="image news economy">
                 </div>
             </div>
             <div class="col-md-6">
@@ -51,6 +63,10 @@
                 <div class="col-md-8 blog-main">
                     @if(count($categoriesAll) && count($arrayNewsByCategory))
                         @foreach($categoriesAll as $keyCategories => $valCategories)
+                            <!-- Если кактегория "Экономика", не выводим -->
+                            @if($valCategories->id === 9)
+                                @continue
+                            @endif
                             @if(count($arrayNewsByCategory[$keyCategories]))
                             <h3 class="pb-3 mb-4 font-italic border-bottom">
                                 {{ $valCategories->name }}
@@ -96,7 +112,7 @@
                         <ol class="list-unstyled mb-0">
                             @if(!$monthYearNews->isEmpty())
                                 @foreach($monthYearNews as $keyMonthYear => $monthYear)
-                                    <li><a href="{{ route('news_group_by', ['id' => $monthYear->id]) }}">{{ $monthYear->month }} {{ $monthYear->year }}</a></li>
+                                    <li><a href="{{ route('arhive', ['year' => $monthYear->year, 'month' => $monthYear->month]) }}">{{ $monthYear->month }} {{ $monthYear->year }}</a></li>
                                 @endforeach
                             @endif
                         </ol>
@@ -113,12 +129,5 @@
                 </aside><!-- /.blog-sidebar -->
             </div><!-- /.row -->
         </main><!-- /.container -->
-
-        <footer class="blog-footer">
-            <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a>.</p>
-            <p>
-                <a href="#">Back to top</a>
-            </p>
-        </footer>
     </div>
 @endsection
