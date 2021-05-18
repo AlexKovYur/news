@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Currency;
+use App\Models\Weather;
 use Illuminate\Http\Request;
 use App\Models\News;
 use Carbon\Carbon;
@@ -37,20 +39,6 @@ class NewsController extends Controller
         return $monthYearNewsWhereSouceId;
     }
 
-    /*private function newsGroupByWhereCategoriesId($sourceId) {
-        //перед выполнение GROUP BY что бы не добавлять ВСЕ неаггрегированные поля выборки, необходимо сбросить sql_mode
-        DB::statement("SET SQL_MODE=''");
-
-        //Сгрупированные новости для вывода в боковую панель
-        $monthYearNewsWhereSouceId = News::selectRaw('id, year(news_date) year, monthname(news_date) month')
-            ->where('source_id', $sourceId)
-            ->groupBy('year', 'month')
-            ->orderBy('year', 'desc')
-            ->get();
-
-        return $monthYearNewsWhereSouceId;
-    }*/
-
     private function sourceHost($news) {
         $arrayUrlByNews = !empty($news->source) ? parse_url($news->source) : [];
         $host = !empty($arrayUrlByNews['host']) ? $arrayUrlByNews['host'] : '';
@@ -60,14 +48,8 @@ class NewsController extends Controller
 
     public function index()
     {
-        //Массив новостей по категориям
-        //$arrayTwoNewsByCategory = [];
-
         //Массив url по новостям
         $arrayHostByNews = [];
-
-        //Массив дополнительных,последующих новостей(по 4) в каждой категории для каждой новости
-        //$arrayFourNewsByCategory = [];
 
         //Массив новостей по категориям сгруперованных по источнику
         $arrayNewsByCategory = [];
@@ -80,9 +62,6 @@ class NewsController extends Controller
 
         //Сгрупированные новости по месяцу и году для вывода в боковую панель
         $monthYearNews = NewsController::newsGroupBy();
-
-        //Вывод новостей на главной странице,
-        //$news = $news->paginate(5);
 
         //Все категории
         $categoriesAll = Category::get();
@@ -114,6 +93,13 @@ class NewsController extends Controller
             }
         }
 
+        //Получаем данные по курсам валют
+        $dataCurrencyToday = Currency::orderBy('created_at', 'desc')->get();
+
+        //Получаем данные погоды
+        $dataWeatherLast = Weather::orderBy('created_at', 'desc')->limit(1)->get();
+
+
         // заголовок страницы
         $title = 'Последние новости';
 
@@ -124,7 +110,9 @@ class NewsController extends Controller
                 'categoriesAll',
                 'arrayHostByNews',
                 'arrayNewsByCategory',
-                'newsByCategory'));
+                'newsByCategory',
+                'dataCurrencyToday',
+                'dataWeatherLast'));
     }
 
     public function create(Request $request)
@@ -143,21 +131,18 @@ class NewsController extends Controller
         DB::statement("SET SQL_MODE=''");
 
         //Сгрупированные новости для вывода в боковую панель
-        $monthYearNewsWhereSouceId = News::selectRaw('id, year(news_date) year, monthname(news_date) month')
+        $monthYearNews = News::selectRaw('id, year(news_date) year, monthname(news_date) month')
             ->where('source_id', $id)
             ->groupBy('year', 'month')
             ->orderBy('year', 'desc')
             ->get();
 
-        dd($monthYearNewsWhereSouceId);
-
-        //$monthYearNews = NewsController::newsGroupBy();
-        //Получаем для источника сгрупперованные новости по году и месяцу
-        //$monthYearNewsWhereSouceId = NewsController::newsGroupByWhereSourceId($sourceId);
-
         $categoriesNews = Category::find($id)->news()->paginate(5);
 
-        return view('news.category', compact('categoriesNews', 'monthYearNews'));
+        //Получаем данные погоды
+        $dataWeatherLast = Weather::orderBy('created_at', 'desc')->limit(1)->get();
+
+        return view('news.category', compact('categoriesNews', 'monthYearNews', 'dataWeatherLast'));
     }
 
     //Получаем новости по выбранной группе(месяц и год)
@@ -172,7 +157,10 @@ class NewsController extends Controller
 
         $monthYearNews = NewsController::newsGroupBy();
 
-        return view('news.category', compact('categoriesNews', 'monthYearNews'));
+        //Получаем данные погоды
+        $dataWeatherLast = Weather::orderBy('created_at', 'desc')->limit(1)->get();
+
+        return view('news.category', compact('categoriesNews', 'monthYearNews', 'dataWeatherLast'));
 
     }
 
@@ -192,10 +180,13 @@ class NewsController extends Controller
             //Получаем для источника сгрупперованные новости по году и месяцу
             $monthYearNewsWhereSouceId = NewsController::newsGroupByWhereSourceId($sourceId);
 
+            //Получаем данные погоды
+            $dataWeatherLast = Weather::orderBy('created_at', 'desc')->limit(1)->get();
+
             //Если данные по новость есть то выводим новость, иначе перенаправляем обратно
             if (!empty($foundNews)) {
-                //return view('news.one_news', compact('foundNews', 'monthYearNews'));
-                return view('news.one_news', compact('foundNews', 'monthYearNewsWhereSouceId', 'otherNewsSource'));
+                return view('news.one_news', compact('foundNews',
+                    'monthYearNewsWhereSouceId', 'otherNewsSource', 'dataWeatherLast'));
             } else {
                 return back();
             }

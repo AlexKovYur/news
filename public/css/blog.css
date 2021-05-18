@@ -58,6 +58,15 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 14px;
 }
 
+.card-body-currency {
+    font-size: 14px;
+}
+
+.wrapper-table-currency {
+    width: 100%;
+    overflow: hidden;
+}
+
 .card-text {
     overflow: hidden;
     height: 24%;
@@ -71,6 +80,16 @@ h1, h2, h3, h4, h5, h6 {
     max-width: 32.5%;
     height: 100%;
     border-radius: 0 3px 3px 0;
+}
+
+.table-currency th {
+    border-top: none;
+}
+
+caption {
+    caption-side:top;
+    padding: 0;
+    font-weight: 700;
 }
 
 .flex-auto {
@@ -165,6 +184,49 @@ h1, h2, h3, h4, h5, h6 {
 .title-outher-news-source {
     font-weight: 700;
     font-size: 1.5rem;
+}
+
+/*
+ * Weather
+ */
+.weather-top,
+.bottom-weather,
+.weather-info {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    justify-content: space-between;
+}
+
+.weather-top {
+    justify-content: space-between;
+}
+
+.weather-city,
+.weather-tempurature {
+    font-weight: 700;
+}
+
+.weather-tempurature {
+    font-size: 30px;
+    margin-right: 7%;
+}
+
+.bottom-weather {
+    justify-content: center;
+}
+
+.weather-info {
+    flex-direction: column;
+}
+
+.weather-humidity,
+.weather-link {
+    color: #999;
+}
+
+.weather-source {
+    text-decoration: underline;
 }
 
 /*
