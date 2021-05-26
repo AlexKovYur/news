@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\CategoryController;
 
+use App\Http\Controllers\TestParsingController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,4 +39,7 @@ Route::get('/arhive/{year}/{month}', [NewsController::class, 'getNewsGroupBy'])-
 
 //Получаем выбранную новость
 Route::get('/news/{id}', [NewsController::class, 'getNews'])->name('one_news');
+
+//Тест пасинга
+Route::get('/test-parsing', [TestParsingController::class, 'test'])->name('test_parsing');
 

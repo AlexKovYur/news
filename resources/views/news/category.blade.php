@@ -30,7 +30,7 @@
                                 <span class="font-italic weather-city">{{ $valWeatherLast->city }}</span>
                             </div>
                             <div class="bottom-weather">
-                                <span class="weather-tempurature">+{{  $valWeatherLast->tempurature }}°</span>
+                                <span class="weather-tempurature">{{  $valWeatherLast->tempurature }}°</span>
                                 <div class="weather-info">
                                     <span class="weather-description" title="Малооблачно {{ $valWeatherLast->humidity . '+' . $valWeatherLast->tempurature }}">Малооблачно</span>
                                     <span class="weather-humidity">Влажность {{ $valWeatherLast->humidity }}%</span>

@@ -2,13 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="683a018c-7b01-4993-9b10-d62e8c856528" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/news.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/news.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/NewsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/NewsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/blog.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/blog.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Console/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Console/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/news.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/news.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/news/category.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/news/category.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/news/one_news.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/news/one_news.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,6 +164,8 @@
       <path value="$PROJECT_DIR$/vendor/maximebf/debugbar" />
       <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-debugbar" />
       <path value="$PROJECT_DIR$/vendor/symfony/debug" />
+      <path value="$PROJECT_DIR$/vendor/imangazaliev/didom" />
+      <path value="$PROJECT_DIR$/vendor/electrolinux/phpquery" />
     </include_path>
   </component>
   <component name="ProjectId" id="1oCpyFSJxfZhrMCb6EccjRerxGy" />
@@ -296,7 +301,14 @@
       <workItem from="1621185052925" duration="7771000" />
       <workItem from="1621262701282" duration="8636000" />
       <workItem from="1621306919728" duration="37000" />
-      <workItem from="1621353522792" duration="9129000" />
+      <workItem from="1621353522792" duration="10173000" />
+      <workItem from="1621393699642" duration="514000" />
+      <workItem from="1621525681257" duration="2973000" />
+      <workItem from="1621620861851" duration="5027000" />
+      <workItem from="1621668724839" duration="5289000" />
+      <workItem from="1621878492197" duration="2126000" />
+      <workItem from="1621961927189" duration="6475000" />
+      <workItem from="1622045812641" duration="7989000" />
     </task>
     <servers />
   </component>
@@ -308,29 +320,41 @@
       <screen x="65" y="24" width="1301" height="744" />
     </state>
     <state x="453" y="141" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/65.24.1301.744@65.24.1301.744" timestamp="1617725525324" />
-    <state x="503" y="141" key="FileChooserDialogImpl" timestamp="1621306957647">
+    <state x="503" y="141" key="FileChooserDialogImpl" timestamp="1621997604737">
       <screen x="65" y="24" width="1301" height="744" />
     </state>
-    <state x="503" y="141" key="FileChooserDialogImpl/65.24.1301.744@65.24.1301.744" timestamp="1621306957647" />
-    <state x="423" y="197" key="NewPhpClassDialog" timestamp="1612885963851">
+    <state x="503" y="141" key="FileChooserDialogImpl/65.24.1301.744@65.24.1301.744" timestamp="1621997604737" />
+    <state x="395" y="197" key="NewPhpClassDialog" timestamp="1621531972624">
       <screen x="65" y="24" width="1301" height="744" />
     </state>
-    <state x="423" y="197" key="NewPhpClassDialog/65.24.1301.744@65.24.1301.744" timestamp="1612885963851" />
+    <state x="395" y="197" key="NewPhpClassDialog/65.24.1301.744@65.24.1301.744" timestamp="1621531972624" />
     <state x="516" y="309" key="NewPhpFileDialog" timestamp="1616517225767">
       <screen x="65" y="24" width="1301" height="744" />
     </state>
     <state x="516" y="309" key="NewPhpFileDialog/65.24.1301.744@65.24.1301.744" timestamp="1616517225767" />
-    <state x="376" y="211" key="com.intellij.ide.util.TipDialog" timestamp="1621306924456">
+    <state x="376" y="211" key="com.intellij.ide.util.TipDialog" timestamp="1621668723343">
       <screen x="65" y="24" width="1301" height="744" />
     </state>
-    <state x="376" y="211" key="com.intellij.ide.util.TipDialog/65.24.1301.744@65.24.1301.744" timestamp="1621306924456" />
-    <state x="471" y="26" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1612804077765">
-      <screen x="65" y="24" width="1301" height="744" />
-    </state>
-    <state x="471" y="26" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/65.24.1301.744@65.24.1301.744" timestamp="1612804077765" />
+    <state x="376" y="211" key="com.intellij.ide.util.TipDialog/65.24.1301.744@65.24.1301.744" timestamp="1621668723343" />
     <state x="369" y="115" width="868" height="602" key="find.popup" timestamp="1616514069207">
       <screen x="65" y="24" width="1301" height="744" />
     </state>
     <state x="369" y="115" width="868" height="602" key="find.popup/65.24.1301.744@65.24.1301.744" timestamp="1616514069207" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/database/migrations/2021_05_25_172611_update_column_weather.php</url>
+          <line>2</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/app/Models/Weather.php</url>
+          <line>4</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

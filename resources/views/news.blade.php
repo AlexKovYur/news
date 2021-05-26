@@ -59,9 +59,9 @@
                                 @if(!$dataCurrencyToday->isEmpty())
                                     @foreach($dataCurrencyToday as $keyCurrencyToday => $valCurrencyToday)
                                         <tr>
-                                            <td>{{ $valCurrencyToday->currency }}</td>
+                                            <td>{{ $valCurrencyToday->currency_symbol }}</td>
                                             <td>{{ $valCurrencyToday->cost }}</td>
-                                            <td>{{ $valCurrencyToday->change . ' %'}}</td>
+                                            <td>{{ $valCurrencyToday->change_24h}}</td>
                                         </tr>
                                     @endforeach
                                 @endif
@@ -124,7 +124,7 @@
                             <span class="font-italic weather-city">{{ $valWeatherLast->city }}</span>
                         </div>
                         <div class="bottom-weather">
-                            <span class="weather-tempurature">+{{  $valWeatherLast->tempurature }}°</span>
+                            <span class="weather-tempurature">{{  $valWeatherLast->tempurature }}°</span>
                             <div class="weather-info">
                                 <span class="weather-description" title="Малооблачно {{ $valWeatherLast->humidity . '+' . $valWeatherLast->tempurature }}">Малооблачно</span>
                                 <span class="weather-humidity">Влажность {{ $valWeatherLast->humidity }}%</span>
